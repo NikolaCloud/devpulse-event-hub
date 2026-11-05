@@ -1,0 +1,5 @@
+# Standard Python 3.10+ compatible (Zero mandatory external dependencies)
+# Optional enhancements:
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pytest>=7.0.0

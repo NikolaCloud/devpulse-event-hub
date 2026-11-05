@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevPulse // Global Developer Conferences & CFP Aggregator</title>
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+  <!-- Top Real-Time Ticker -->
+  <div class="top-ticker">
+    <div class="container ticker-content">
+      <div class="ticker-pulse">
+        <span class="pulse-dot"></span>
+        <span>INDEXING: 340+ GLOBAL CONFERENCES & 1,200 OPEN CALLS FOR PAPERS</span>
+      </div>
+      <div>CFP RADAR UPDATED: 14 MIN AGO // ZURICH - SF - BERLIN - TOKYO</div>
+    </div>
+  </div>
+
+  <!-- Main Navbar -->
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="#" class="brand">
+        <span class="brand-badge">DP</span>
+        <div class="brand-text">
+          <h1>DevPulse</h1>
+          <span>Global Developer Summits &amp; CFP Hub</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#directory">Directory</a></li>
+          <li><a href="#cfp">Open CFPs</a></li>
+          <li><a href="#calendar">Calendar Sync</a></li>
+          <li><a href="#about">About Hub</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-black" id="open-submit-btn">+ Submit Event / CFP</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="hero-meta-tag">COMMUNITY CURATED DIRECTORY // 2026 - 2027</span>
+      <h2 class="hero-title">
+        The Global Index of Engineering Summits, Hackathons &amp; CFPs.
+      </h2>
+      <p class="hero-desc">
+        Discover verified developer conferences across distributed systems, machine learning, systems architecture, offensive security, and cloud infra. Direct links to open speaker calls and delegate registration.
+      </p>
+
+      <div class="hero-stats-strip">
+        <div>
+          <div class="hstat-num">340+</div>
+          <div class="hstat-lbl">Conferences Tracked</div>
+        </div>
+        <div>
+          <div class="hstat-num">98</div>
+          <div class="hstat-lbl">Global Cities</div>
+        </div>
+        <div>
+          <div class="hstat-num">1,240</div>
+          <div class="hstat-lbl">Active CFP Deadlines</div>
+        </div>
+        <div>
+          <div class="hstat-num">$0</div>
+          <div class="hstat-lbl">Free Community Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Tabs & Filter Bar -->
+  <section class="container" id="directory">
+    <div class="filter-bar">
+      <div class="filter-grid">
+        <div class="fg-item">
+          <label for="search-input">Search Summit, City or Topic</label>
+          <input type="text" id="search-input" placeholder="e.g. NeuralSystems, Berlin, Rust, eBPF...">
+        </div>
+        <div class="fg-item">
+          <label for="format-filter">Format</label>
+          <select id="format-filter">
+            <option value="all">All Formats</option>
+            <option value="In-Person">In-Person Only</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Virtual">Virtual Only</option>
+          </select>
+        </div>
+        <div class="fg-item">
+          <label for="status-filter">CFP / Ticket State</label>
+          <select id="status-filter">
+            <option value="all">All States</option>
+            <option value="CFP Open">CFP Open</option>
+            <option value="Closing Soon">CFP Closing Soon</option>
+            <option value="Tickets Live">Tickets Live</option>
+          </select>
+        </div>
+        <div class="fg-item">
+          <label for="sort-filter">Sort Order</label>
+          <select id="sort-filter">
+            <option value="date-asc">Chronological Order</option>
+            <option value="attendees-desc">Attendee Volume (Largest)</option>
+            <option value="name-asc">Alphabetical (A - Z)</option>
+          </select>
+        </div>
+        <div class="fg-item" style="justify-content: flex-end;">
+          <button class="btn-outline" onclick="document.getElementById('search-input').value=''; document.getElementById('format-filter').value='all'; document.getElementById('status-filter').value='all'; applyFilters();">
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="quick-tabs">
+      <button class="tab-pill active" data-cat="all">All Domains (6)</button>
+      <button class="tab-pill" data-cat="AI / ML">AI / Machine Learning</button>
+      <button class="tab-pill" data-cat="Systems">Low-Level &amp; Systems</button>
+      <button class="tab-pill" data-cat="DevOps">Cloud &amp; DevOps</button>
+      <button class="tab-pill" data-cat="Security">Cyber Security</button>
+      <button class="tab-pill" data-cat="Web3">Decentralized &amp; Cryptography</button>
+      <button class="tab-pill" data-cat="Frontend">Modern Web &amp; Compilers</button>
+    </div>
+  </section>
+
+  <!-- Events Grid -->
+  <section class="container events-section">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+      <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; text-transform: uppercase;">
+        Upcoming Confirmed Summits
+      </h3>
+      <div id="events-count" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">
+        6 global summits listed
+      </div>
+    </div>
+
+    <div class="events-grid" id="events-grid">
+      <!-- Injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- Agenda Modal -->
+  <div class="modal-overlay" id="agenda-modal">
+    <div class="modal-box">
+      <button class="modal-close-btn">&times;</button>
+      <div id="agenda-modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit Event Modal -->
+  <div class="modal-overlay" id="submit-modal">
+    <div class="modal-box">
+      <button class="modal-close-btn">&times;</button>
+      <h2 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase;">
+        Submit a Developer Conference / CFP
+      </h2>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        Add your engineering summit or hackathon to the DevPulse global index. Reviewed and indexed within 24 hours.
+      </p>
+
+      <form id="event-submit-form">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="fg-item">
+            <label>Event Name</label>
+            <input type="text" required placeholder="e.g. Distributed Con 2027">
+          </div>
+          <div class="fg-item">
+            <label>Dates (Month &amp; Days)</label>
+            <input type="text" required placeholder="e.g. NOV 12 - 14, 2027">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div class="fg-item">
+            <label>City &amp; Country</label>
+            <input type="text" required placeholder="e.g. Tokyo, Japan">
+          </div>
+          <div class="fg-item">
+            <label>Primary Domain</label>
+            <select required>
+              <option value="AI / ML">AI / Machine Learning</option>
+              <option value="Systems">Low-Level &amp; Systems</option>
+              <option value="DevOps">Cloud &amp; DevOps</option>
+              <option value="Security">Cyber Security</option>
+              <option value="Frontend">Frontend &amp; Compilers</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fg-item" style="margin-bottom: 1rem;">
+          <label>CFP URL / Submission Gateway</label>
+          <input type="url" required placeholder="https://sessionize.com/your-event-cfp">
+        </div>
+
+        <div class="fg-item" style="margin-bottom: 1.5rem;">
+          <label>Description &amp; Key Focus Tracks</label>
+          <textarea rows="3" required placeholder="Summary of technical talks, intended audience..." style="padding: 0.65rem 0.85rem; border: 2px solid var(--border-strong); border-radius: 6px; font-family: var(--font-sans); font-size: 0.9rem;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-black" style="width: 100%; justify-content: center; padding: 0.8rem;">
+          Submit to Global Index &rarr;
+        </button>
+
+        <div id="submit-feedback" style="display: none; margin-top: 1rem; color: var(--color-emerald); font-weight: 700; text-align: center; font-family: var(--font-mono); font-size: 0.85rem;">
+          ✓ Submission received! Staged for index verification.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="about">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <span class="brand-badge" style="font-size: 0.9rem;">DP</span>
+          <span style="font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; text-transform: uppercase;">DevPulse</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; max-width: 320px;">
+          The open international index of developer gatherings, call-for-papers, and engineering symposia.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Domains</h4>
+        <ul>
+          <li><a href="#directory">AI &amp; LLM Systems</a></li>
+          <li><a href="#directory">Rust &amp; C++ Systems</a></li>
+          <li><a href="#directory">Kubernetes &amp; DevOps</a></li>
+          <li><a href="#directory">Zero-Day Security</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#calendar">Export Calendar (.ics)</a></li>
+          <li><a href="#directory">CFP Radar Alert</a></li>
+          <li><a href="#open-submit-btn" id="open-submit-hero-btn">Submit Conference</a></li>
+          <li><a href="https://github.com" target="_blank">Open Data API</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#">Discord Server</a></li>
+          <li><a href="#">Newsletter (Weekly CFPs)</a></li>
+          <li><a href="#">Speaker Mentorship</a></li>
+          <li><a href="#">Code of Conduct</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 DevPulse Index. Open-access developer infrastructure.</div>
+      <div>Curated by Software Engineers across Zurich, SF &amp; Tokyo.</div>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>
