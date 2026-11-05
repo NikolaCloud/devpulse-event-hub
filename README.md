@@ -72,3 +72,4 @@ python server.py
 ├── requirements.txt           # Спецификация
 └── README.md
 ```
+
